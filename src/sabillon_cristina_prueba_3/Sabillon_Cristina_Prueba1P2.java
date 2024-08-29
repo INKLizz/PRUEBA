@@ -78,11 +78,9 @@ public class Sabillon_Cristina_Prueba1P2 {
         System.out.println("\nPalabras del Arreglo A que no estan en el Arreglo B son:");
 
         for (int indice = 0; indice < ArregloA.length; indice++) {
-            for (int index = 0; index < ArregloB.length; index++) {
-                if (ArregloA[indice] != null && ArregloA[indice].equals(ArregloB[indice])) {
+                if (ArregloA[indice].equals(ArregloB[indice])) {
                     encontrado = true;
                     break;
-                }
             }
             if (!encontrado) {
                 System.out.println("[" + indice + "]: " + ArregloA[indice]);
