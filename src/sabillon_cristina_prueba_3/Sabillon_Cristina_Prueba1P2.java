@@ -45,12 +45,13 @@ public class Sabillon_Cristina_Prueba1P2 {
 
             int  random_num =  random.nextInt(Palabras.length);
             palabra = Palabras[random_num];
+            ArregloA [indice] = palabra;
             
             for (int index = palabra.length() - 1; index >= 0; index--) {
                 alreves += palabra.charAt(index);
             }
             
-            if (alreves.equals(palabra)){
+            if (alreves.equals(palabra) && ArregloA[indice] != null){
                 ArregloA [indice] = palabra;
             }
             
@@ -61,27 +62,30 @@ public class Sabillon_Cristina_Prueba1P2 {
         for (int indice = 0; indice < ArregloB.length; indice++) {
             int  random_num =  random.nextInt(Palabras.length);
             palabra = Palabras[random_num];
+            alreves = "";
+            ArregloB [indice] = palabra;
             
             for (int index = palabra.length() - 1; index >= 0; index--) {
                 alreves += palabra.charAt(index);
             }
             
-            if (alreves.equals(palabra)){
-            ArregloB [indice] = Palabras[random_num];
+            if (alreves.equals(palabra)&& ArregloB[indice] != null){
+            ArregloB [indice] = palabra;
             }
             System.out.println( "[" + indice + "]: " + ArregloB[indice]);          
         }
         
-        System.out.println("\nPalabras del Arreglo A no estan en el Arreglo B son:");
-        
+        System.out.println("\nPalabras del Arreglo A que no estan en el Arreglo B son:");
+
         for (int indice = 0; indice < ArregloA.length; indice++) {
-            for (int tamanio = 0; tamanio < ArregloA.length; tamanio++) {
-                if (!ArregloA[indice].contains(ArregloB[indice])){
-                    System.out.println("");
-                    System.out.println( "[" + tamanio + "]: " + ArregloB[tamanio]);          
-                    }else{
-                         break;
+            for (int index = 0; index < ArregloB.length; index++) {
+                if (ArregloA[indice] != null && ArregloA[indice].equals(ArregloB[indice])) {
+                    encontrado = true;
+                    break;
                 }
+            }
+            if (!encontrado) {
+                System.out.println("[" + indice + "]: " + ArregloA[indice]);
             }
         }
     }    
